@@ -61,14 +61,14 @@ async function train(options) {
 
     } else if (modelType === 'B') {
         console.log('> Generowanie embeddingów (MobileNet) dla Modelu B...');
-        const { X, y } = await createDatasetFeatures(csvPath, imagesDir, 224, channels);
+        const { x, y } = await createDatasetFeatures(csvPath, imagesDir, 224, channels);
 
         console.log('> Tworzenie Modelu B...');
         const inputDim = 1280;
         const model = createModelB(inputDim);
 
         console.log('> Trenowanie Modelu B...');
-        await model.fit(X, y, {
+        await model.fit(x, y, {
             epochs,
             batchSize,
             validationSplit: 0.2,
@@ -82,7 +82,7 @@ async function train(options) {
         console.log('> Zapisywanie Modelu B do my-modelB...');
         await model.save('file://./my-modelB');
 
-        X.dispose();
+        x.dispose();
         y.dispose();
         console.log('Gotowe. Model B zapisany.\n');
 
