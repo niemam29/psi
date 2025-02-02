@@ -1,0 +1,23 @@
+{
+  "name": "psi",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "trainA": "node src/index.js train --model-type A --epochs 10 --batch-size 8",
+    "trainB": "node src/index.js train --model-type B --epochs 10 --batch-size 8",
+    "predictA": "node src/index.js predict --model-type A --image test2.png",
+    "predictB": "node src/index.js predict --model-type B --image test2.png",
+    "evaluate": "node src/cli/evaluate.js --compare"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/mobilenet": "^2.1.1",
+    "@tensorflow/tfjs-node": "^4.22.0",
+    "commander": "^13.1.0",
+    "csv-parser": "^3.1.0",
+    "sharp": "^0.33.5"
+  }
+}
